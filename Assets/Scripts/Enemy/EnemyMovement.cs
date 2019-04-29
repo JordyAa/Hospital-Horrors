@@ -18,6 +18,7 @@ public class EnemyMovement : MonoBehaviour
     private Rigidbody2D rb;
     private Animator anim;
     private EnemyCombat com;
+    private EnemyHealth hp;
     private static readonly int Horizontal = Animator.StringToHash("Horizontal");
     private static readonly int Vertical = Animator.StringToHash("Vertical");
     private static readonly int IsMoving = Animator.StringToHash("IsMoving");
@@ -27,6 +28,7 @@ public class EnemyMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         com = GetComponent<EnemyCombat>();
+        hp = GetComponent<EnemyHealth>();
         
         distanceToMove = Random.Range(distanceToMove * .9f, distanceToMove * 1.1f);
         timeToKeepMoving = Random.Range(timeToKeepMoving, timeToKeepMoving * 1.2f);
@@ -37,7 +39,7 @@ public class EnemyMovement : MonoBehaviour
 
     private void Update()
     {
-        if (GameManager.instance.isPaused) return;
+        if (GameManager.instance.isPaused || hp.isDead) return;
         
         if (com.target != null)
         {
@@ -78,6 +80,8 @@ public class EnemyMovement : MonoBehaviour
     
     private IEnumerator Move()
     {
+        if (GameManager.instance.isPaused || hp.isDead) yield break;
+        
         rb.velocity = new Vector2(horizontal, vertical);
         if (isFreezing)
         {

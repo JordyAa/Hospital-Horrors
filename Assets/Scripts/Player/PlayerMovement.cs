@@ -35,6 +35,7 @@ public class PlayerMovement : MonoBehaviour
             horizontal = 0f;
             vertical = 0f;
             anim.SetBool(IsMoving, false);
+            rb.velocity = Vector2.zero;
             return;
         }
         

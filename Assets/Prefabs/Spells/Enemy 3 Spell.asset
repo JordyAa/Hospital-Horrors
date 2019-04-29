@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9f310ed775cf378418808bc703cb79ae, type: 3}
-  m_Name: Enemy Default Spell
+  m_Name: Enemy 3 Spell
   m_EditorClassIdentifier: 
-  minDamage: 15
-  maxDamage: 25
+  minDamage: 5
+  maxDamage: 15
   manaCost: 0
-  cooldown: 2
+  cooldown: 4
   lifeTime: 5
-  projectileForce: 11
-  projectile: {fileID: 8890404181182070896, guid: 3940c142eda1afd4e9819bd80675627b,
+  projectileForce: 15
+  projectile: {fileID: 8890404181182070896, guid: a82d15e491c84a247a3a03e634450d83,
     type: 3}

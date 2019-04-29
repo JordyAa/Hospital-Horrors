@@ -18,7 +18,7 @@ public class EnemyHealth : MonoBehaviour
     public GameObject freezeEffect;
 
     private bool isBurning;
-    private bool isDead;
+    [HideInInspector] public bool isDead;
     
     private Animator anim;
     private static readonly int IsDead = Animator.StringToHash("IsDead");

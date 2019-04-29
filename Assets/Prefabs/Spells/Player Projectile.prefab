@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2352748136353971169}
   - component: {fileID: 8890404181182070903}
   m_Layer: 0
-  m_Name: Player Default Projectile
+  m_Name: Player Projectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -144,7 +144,7 @@ MonoBehaviour:
   - {fileID: 6369463350459406422, guid: 8bf65debfd39c864e837b389b4aa415c, type: 3}
   - {fileID: 6824355034278568541, guid: dee191fe87b965141a08abf7692cc0b8, type: 3}
   - {fileID: 4000772226306445927, guid: 316b1225ccf9f4649818f25f1e2e6934, type: 3}
-  timeBetweenTrails: 0.2
+  timeBetweenTrails: 0.1
 --- !u!1001 &1617434222998519913
 PrefabInstance:
   m_ObjectHideFlags: 0
