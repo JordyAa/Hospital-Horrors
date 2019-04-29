@@ -19,12 +19,14 @@ public class EnemyHealth : MonoBehaviour
 
     private bool isBurning;
     [HideInInspector] public bool isDead;
-    
+
+    private EnemyCombat com;
     private Animator anim;
     private static readonly int IsDead = Animator.StringToHash("IsDead");
 
     private void Start()
     {
+        com = GetComponent<EnemyCombat>();
         anim = GetComponent<Animator>();
 
         maxHealth = Random.Range(maxHealth * .9f, maxHealth * 1.1f);
@@ -58,7 +60,7 @@ public class EnemyHealth : MonoBehaviour
     public void TakeHit(float damage)
     {
         currHealth -= damage;
-        GetComponent<EnemyCombat>().target = GameObject.FindGameObjectWithTag("Player").transform;
+        com.target = GameObject.FindGameObjectWithTag("Player").transform;
 
         Instantiate(damageEffect, transform.position, Quaternion.identity);
         CheckDeath();

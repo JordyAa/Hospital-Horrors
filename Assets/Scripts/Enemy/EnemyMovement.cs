@@ -41,14 +41,8 @@ public class EnemyMovement : MonoBehaviour
     {
         if (GameManager.instance.isPaused || hp.isDead) return;
         
-        if (com.target != null)
+        if (com.target != null && Vector2.Distance(transform.position, com.target.position) <= followDistance)
         {
-            if (Vector2.Distance(transform.position, com.target.position) > followDistance)
-            {
-                com.target = null;
-                return;
-            }
-            
             Vector2 direction = (com.target.position - transform.position).normalized;
             horizontal = direction.x * distanceToMove;
             vertical = direction.y * distanceToMove;
