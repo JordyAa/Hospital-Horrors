@@ -82,7 +82,7 @@ public class PlayerCombat : MonoBehaviour
                 PlayerManager.instance.selectedPower = 0;
                 PlayerManager.instance.UpdateIconUI();
             }
-            else if (PlayerManager.stats.powers.lightning > 0)
+            else if (PlayerManager.stats.powers.currentLightning > 0)
             {
                 PlayerManager.instance.selectedPower = 1;
                 PlayerManager.instance.UpdateIconUI();
@@ -95,7 +95,7 @@ public class PlayerCombat : MonoBehaviour
                 PlayerManager.instance.selectedPower = 0;
                 PlayerManager.instance.UpdateIconUI();
             }
-            else if (PlayerManager.stats.powers.fireball > 0)
+            else if (PlayerManager.stats.powers.currentFireball > 0)
             {
                 PlayerManager.instance.selectedPower = 2;
                 PlayerManager.instance.UpdateIconUI();
@@ -108,7 +108,7 @@ public class PlayerCombat : MonoBehaviour
                 PlayerManager.instance.selectedPower = 0;
                 PlayerManager.instance.UpdateIconUI();
             }
-            else if (PlayerManager.stats.powers.freeze > 0)
+            else if (PlayerManager.stats.powers.currentFreeze > 0)
             {
                 PlayerManager.instance.selectedPower = 3;
                 PlayerManager.instance.UpdateIconUI();
@@ -122,9 +122,9 @@ public class PlayerCombat : MonoBehaviour
         {
             case 1:
                 Debug.LogError("Not yet implemented!");
-                PlayerManager.stats.powers.lightning--;
+                PlayerManager.stats.powers.currentLightning--;
                 camFollow.Shake();
-                if (PlayerManager.stats.powers.lightning == 0)
+                if (PlayerManager.stats.powers.currentLightning == 0)
                 {
                     PlayerManager.instance.selectedPower = 0;
                     PlayerManager.instance.UpdateIconUI();
@@ -132,9 +132,9 @@ public class PlayerCombat : MonoBehaviour
                 break;
             case 2:
                 Instantiate(fireballEffect, cam.ScreenToWorldPoint(Input.mousePosition), Quaternion.identity);
-                PlayerManager.stats.powers.fireball--;
+                PlayerManager.stats.powers.currentFireball--;
                 camFollow.Shake();
-                if (PlayerManager.stats.powers.fireball == 0)
+                if (PlayerManager.stats.powers.currentFireball == 0)
                 {
                     PlayerManager.instance.selectedPower = 0;
                     PlayerManager.instance.UpdateIconUI();
@@ -142,9 +142,9 @@ public class PlayerCombat : MonoBehaviour
                 break;
             case 3:
                 Instantiate(freezeEffect, cam.ScreenToWorldPoint(Input.mousePosition), Quaternion.identity);
-                PlayerManager.stats.powers.freeze--;
+                PlayerManager.stats.powers.currentFreeze--;
                 camFollow.Shake();
-                if (PlayerManager.stats.powers.freeze == 0)
+                if (PlayerManager.stats.powers.currentFreeze == 0)
                 {
                     PlayerManager.instance.selectedPower = 0;
                     PlayerManager.instance.UpdateIconUI();

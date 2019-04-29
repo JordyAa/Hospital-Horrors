@@ -91,6 +91,10 @@ public class PlayerManager : MonoBehaviour
             if (stats.powers.revive > 0)
             {
                 stats.powers.revive--;
+                stats.vitals.currentHealth = stats.vitals.startHealth;
+                stats.powers.currentLightning = stats.powers.startLightning;
+                stats.powers.currentFireball = stats.powers.startFireball;
+                stats.powers.currentFreeze = stats.powers.startFreeze;
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             }
             else

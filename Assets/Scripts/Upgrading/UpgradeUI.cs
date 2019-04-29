@@ -18,7 +18,11 @@ public class UpgradeUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
         GetComponent<Image>().sprite = upgrade.icon;
 
         upgradeName.text = upgrade.upgradeName;
-        description.text = upgrade.description;
+        description.text = "";
+        foreach (string s in upgrade.description)
+        {
+            description.text += s + "\n";
+        }
         soulsCost.text = "Souls: -" + upgrade.soulsCost;
         healthCost.text = "HP: -" + upgrade.healthCost;
         manaCost.text = "Mana: -" + upgrade.manaCost;

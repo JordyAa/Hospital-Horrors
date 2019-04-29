@@ -64,7 +64,7 @@ public class UpgradeManager : MonoBehaviour
         if (CanAfford(lightning))
         {
             Purchase(lightning);
-            PlayerManager.stats.powers.lightning += amount;
+            PlayerManager.stats.powers.startLightning += amount;
             UpdateUI();
         }
     }
@@ -74,7 +74,7 @@ public class UpgradeManager : MonoBehaviour
         if (CanAfford(fireball))
         {
             Purchase(fireball);
-            PlayerManager.stats.powers.fireball += amount;
+            PlayerManager.stats.powers.startFireball += amount;
             UpdateUI();
         }
     }
@@ -84,7 +84,7 @@ public class UpgradeManager : MonoBehaviour
         if (CanAfford(freeze))
         {
             Purchase(freeze);
-            PlayerManager.stats.powers.freeze += amount;
+            PlayerManager.stats.powers.startFreeze += amount;
             UpdateUI();
         }
     }
@@ -193,40 +193,48 @@ public class UpgradeManager : MonoBehaviour
 
     public void RandomStatBoost()
     {
-        int rand = Random.Range(0, 11);
+        int rand = Random.Range(0, 10);
         switch (rand)
         {
             case 0:
-                PlayerManager.stats.vitals.currentHealth += 5;
-                ShowRandomStatBoost("+5 health");
+                int hp = Random.Range(5, 15);
+                PlayerManager.stats.vitals.currentHealth += hp;
+                ShowRandomStatBoost(string.Format("+{0} health", hp));
                 break;
             case 2:
-                PlayerManager.stats.vitals.manaRechargeRate += .05f;
-                ShowRandomStatBoost("+5% mana recharge rate");
+                float amount = Random.Range(.05f, .1f);
+                PlayerManager.stats.vitals.manaRechargeRate += amount;
+                ShowRandomStatBoost(string.Format("+{0:0}% mana recharge rate", amount * 100));
                 break;
             case 3:
-                PlayerManager.stats.weapon.bulletSpread -= 10f;
-                ShowRandomStatBoost("-10 degrees bullet spread");
+                int deg = Random.Range(10, 15);
+                PlayerManager.stats.weapon.bulletSpread -= deg;
+                ShowRandomStatBoost(string.Format("-{0} degrees bullet spread", deg));
                 break;
             case 4:
-                PlayerManager.stats.weapon.manaCostModifier -= .05f;
-                ShowRandomStatBoost("-5% mana cost");
+                amount = Random.Range(.05f, .1f);
+                PlayerManager.stats.weapon.manaCostModifier -= amount;
+                ShowRandomStatBoost(string.Format("-{0:0}% mana cost", amount * 100));
                 break;
             case 5:
-                PlayerManager.stats.weapon.cooldownModifier -= .05f;
-                ShowRandomStatBoost("-5% cooldown");
+                amount = Random.Range(.05f, .1f);
+                PlayerManager.stats.weapon.cooldownModifier -= amount;
+                ShowRandomStatBoost(string.Format("-{0:0}% cooldown", amount * 100));
                 break;
             case 6:
-                PlayerManager.stats.weapon.minDamageModifier += .05f;
-                ShowRandomStatBoost("+5% min damage");
+                amount = Random.Range(.05f, .1f);
+                PlayerManager.stats.weapon.minDamageModifier += amount;
+                ShowRandomStatBoost(string.Format("+{0:0}% min damage", amount * 100));
                 break;
             case 7:
-                PlayerManager.stats.weapon.maxDamageModifier += .05f;
-                ShowRandomStatBoost("+5% max damage");
+                amount = Random.Range(.05f, .1f);
+                PlayerManager.stats.weapon.maxDamageModifier += amount;
+                ShowRandomStatBoost(string.Format("+{0:0}% max damage", amount * 100));
                 break;
             case 8:
-                PlayerManager.stats.weapon.projectileForceModifier += .05f;
-                ShowRandomStatBoost("+5% projectile speed");
+                amount = Random.Range(.05f, .1f);
+                PlayerManager.stats.weapon.projectileForceModifier += amount;
+                ShowRandomStatBoost(string.Format("+{0:0}% projectile speed", amount * 100));
                 break;
             default:
                 ShowRandomStatBoost("Nothing");
@@ -265,6 +273,10 @@ public class UpgradeManager : MonoBehaviour
 
     private static void UpdateUI()
     {
+        PlayerManager.instance.soulsText.text = "SOULS: " + PlayerManager.stats.vitals.souls;
+        PlayerManager.instance.UpdateHealthUI();
+        PlayerManager.instance.UpdateManaUI();
+        
         GameManager.instance.chooseUpgradePanel.SetActive(false);
         GameManager.instance.stageCompletePanel.SetActive(true);
     }

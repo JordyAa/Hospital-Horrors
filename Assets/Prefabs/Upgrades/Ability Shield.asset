@@ -14,7 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 6220208007999549204, guid: 9d3bf99c1d7083147bbc2e5e5c8d6fc5, type: 3}
   upgradeName: Shield
-  description: Ability to spawn a temporary recharging shield. [Q]
+  description:
+  - Gain the ability to spawn a rechargeable shield.
+  - '[Q]'
   soulsCost: 10
   healthCost: 20
   manaCost: 0

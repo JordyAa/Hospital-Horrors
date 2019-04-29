@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: -3056297102037108793, guid: 9d3bf99c1d7083147bbc2e5e5c8d6fc5, type: 3}
   upgradeName: Vampire
-  description: Enemies have a chance to drop mana on death.
+  description:
+  - Enemies have a chance to drop mana on death.
   soulsCost: 5
   healthCost: 0
   manaCost: 20

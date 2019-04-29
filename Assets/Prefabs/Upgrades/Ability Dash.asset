@@ -14,7 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: -6555575649291838755, guid: 9d3bf99c1d7083147bbc2e5e5c8d6fc5, type: 3}
   upgradeName: Dash
-  description: The ability to dash. [SPACE]
+  description:
+  - Gain the ability to dash.
+  - '[SPACE]'
   soulsCost: 0
   healthCost: 10
   manaCost: 0

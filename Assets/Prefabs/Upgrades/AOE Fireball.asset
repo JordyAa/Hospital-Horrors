@@ -14,7 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: -9006234362928969064, guid: 9d3bf99c1d7083147bbc2e5e5c8d6fc5, type: 3}
   upgradeName: Fireball
-  description: 'A one time use area of effect fireball spell. [2] Select, [RMB] Fire '
-  soulsCost: 10
+  description:
+  - Gain a one time use fireball spell.
+  - Resets at each floor.
+  - '[2] + [RMB]'
+  soulsCost: 5
   healthCost: 5
   manaCost: 0

@@ -14,7 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 6034864100499761545, guid: 9d3bf99c1d7083147bbc2e5e5c8d6fc5, type: 3}
   upgradeName: More mana
-  description: Gain higher max mana, but lower max health.
+  description:
+  - Lose max health.
+  - Gain max mana.
   soulsCost: 0
   healthCost: 10
   manaCost: 0

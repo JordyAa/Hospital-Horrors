@@ -14,7 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 8048101208271225017, guid: 9d3bf99c1d7083147bbc2e5e5c8d6fc5, type: 3}
   upgradeName: Revive
-  description: A one time revive.
+  description:
+  - Get a one time revive.
+  - Health is reset to what you started with at that floor.
   soulsCost: 10
   healthCost: 40
   manaCost: 10

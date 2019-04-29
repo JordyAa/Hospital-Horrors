@@ -50,11 +50,17 @@ public class GameManager : MonoBehaviour
 
     public void NextLevel()
     {
+        PlayerManager.stats.vitals.startHealth = PlayerManager.stats.vitals.currentHealth;
+        PlayerManager.stats.powers.currentLightning = PlayerManager.stats.powers.startLightning;
+        PlayerManager.stats.powers.currentFireball = PlayerManager.stats.powers.startFireball;
+        PlayerManager.stats.powers.currentFreeze = PlayerManager.stats.powers.startFreeze;
+        
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     public void MainMenu()
     {
+        Destroy(PlayerManager.instance);
         Time.timeScale = 1f;
         SceneManager.LoadScene(0);
     }

@@ -84,6 +84,7 @@ public class EnemyHealth : MonoBehaviour
         {
             AudioManager.instance.ZombieDie();
             
+            
             anim.SetTrigger(IsDead);
             isDead = true;
             
@@ -91,6 +92,7 @@ public class EnemyHealth : MonoBehaviour
             Destroy(GetComponent<Collider2D>());
             Destroy(GetComponent<EnemyCombat>());
             Destroy(GetComponent<EnemyMovement>());
+            healthBar.SetActive(false);
             
             Instantiate(lootDrop, transform.position, Quaternion.identity);
             if (Random.Range(0f, 1f) <= PlayerManager.stats.dropChance.health)

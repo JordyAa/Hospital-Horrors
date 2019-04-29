@@ -14,7 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 4825128673663840708, guid: 9d3bf99c1d7083147bbc2e5e5c8d6fc5, type: 3}
   upgradeName: Melee
-  description: The ability to perform melee attacks. [F]
+  description:
+  - Gain the ability to melee attack.
+  - '[F]'
   soulsCost: 5
   healthCost: 10
   manaCost: 0

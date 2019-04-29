@@ -14,7 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: -2613411450045547498, guid: 9d3bf99c1d7083147bbc2e5e5c8d6fc5, type: 3}
   upgradeName: Explosion
-  description: Bullets have a chance to explode on impact.
+  description:
+  - Increase the chance of you bullets exploding on inpact.
+  - Explosion deal area of effect damage.
   soulsCost: 10
   healthCost: 10
   manaCost: 0

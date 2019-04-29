@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: -7557494978891415441, guid: 9d3bf99c1d7083147bbc2e5e5c8d6fc5, type: 3}
   upgradeName: More bullets
-  description: You fire 4 more bullets every shot.
+  description:
+  - Shoot 2 more bullets each shot.
   soulsCost: 20
   healthCost: 40
   manaCost: 0

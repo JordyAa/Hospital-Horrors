@@ -11,6 +11,7 @@
     {
         public int maxHealth = 200;
         public int currentHealth = 200;
+        public int startHealth = 200;
 
         public int maxMana = 50;
         public float currentMana = 50f;
@@ -41,9 +42,14 @@
 
     public class Powers
     {
-        public int lightning = 0;
-        public int fireball = 1;
-        public int freeze = 0;
+        public int startLightning = 0;
+        public int startFireball = 0;
+        public int startFreeze = 0;
+        
+        public int currentLightning = 0;
+        public int currentFireball = 0;
+        public int currentFreeze = 0;
+        
         public int revive = 0;
     }
 

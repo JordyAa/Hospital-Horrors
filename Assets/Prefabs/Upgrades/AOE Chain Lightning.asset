@@ -14,7 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 4800566814532983255, guid: 9d3bf99c1d7083147bbc2e5e5c8d6fc5, type: 3}
   upgradeName: Chain Lightning
-  description: A one time use chain lightning spell. [1] Select, [RMB] Fire
+  description:
+  - Gain a one time use chain lightning spell.
+  - Resets at each floor.
+  - '[1] + [RMB]'
   soulsCost: 10
   healthCost: 5
   manaCost: 0
