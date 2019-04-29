@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Enemy 2 Spell
   m_EditorClassIdentifier: 
   minDamage: 25
-  maxDamage: 35
+  maxDamage: 33
   manaCost: 0
   cooldown: 5
   lifeTime: 10

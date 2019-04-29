@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Enemy 3 Spell
   m_EditorClassIdentifier: 
   minDamage: 5
-  maxDamage: 15
+  maxDamage: 13
   manaCost: 0
   cooldown: 4
   lifeTime: 5

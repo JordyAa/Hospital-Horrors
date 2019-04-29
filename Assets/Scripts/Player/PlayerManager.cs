@@ -50,7 +50,7 @@ public class PlayerManager : MonoBehaviour
             cam = Camera.main.GetComponent<CameraFollow>();
         }
 
-        if (SceneManager.GetActiveScene().buildIndex == 1)
+        if (SceneManager.GetActiveScene().buildIndex == 2)
         {
             // Initialise stats if this is the first level.
             stats = new Stats();

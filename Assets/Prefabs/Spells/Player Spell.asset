@@ -15,7 +15,7 @@ MonoBehaviour:
   minDamage: 20
   maxDamage: 28
   manaCost: 10
-  cooldown: 0.4
+  cooldown: 0.3
   lifeTime: 4
   projectileForce: 12
   projectile: {fileID: 8890404181182070896, guid: e263c361f30786f419fe009006a336c8,

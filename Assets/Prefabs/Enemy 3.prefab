@@ -548,7 +548,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distanceToMove: 2.5
-  followDistance: 15
+  followDistance: 20
   timeToKeepMoving: 5
   timeBetweenMovements: 0
   isFreezing: 0
