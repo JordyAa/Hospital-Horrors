@@ -30,7 +30,13 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        if (GameManager.instance.isPaused) return;
+        if (GameManager.instance.isPaused)
+        {
+            horizontal = 0f;
+            vertical = 0f;
+            anim.SetBool(IsMoving, false);
+            return;
+        }
         
         horizontal = Input.GetAxisRaw("Horizontal");
         vertical = Input.GetAxisRaw("Vertical");
@@ -70,6 +76,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (GameManager.instance.isPaused) return;
+        
         if (Mathf.Abs(horizontal) > Mathf.Epsilon && Mathf.Abs(vertical) > Mathf.Epsilon)
         {
             horizontal *= diagonalModifier;

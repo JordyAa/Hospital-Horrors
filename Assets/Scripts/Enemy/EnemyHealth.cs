@@ -26,7 +26,8 @@ public class EnemyHealth : MonoBehaviour
     private void Start()
     {
         anim = GetComponent<Animator>();
-        
+
+        maxHealth = Random.Range(maxHealth * .9f, maxHealth * 1.1f);
         currHealth = maxHealth;
 
         healthSlider.maxValue = maxHealth;
@@ -99,7 +100,7 @@ public class EnemyHealth : MonoBehaviour
                 Instantiate(manaDrop, transform.position + Vector3.right, Quaternion.identity);
             }
         }
-        else
+        else if (isBurning == false)
         {
             AudioManager.instance.ZombieHit();
         }

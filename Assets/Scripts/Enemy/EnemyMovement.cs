@@ -28,6 +28,10 @@ public class EnemyMovement : MonoBehaviour
         anim = GetComponent<Animator>();
         com = GetComponent<EnemyCombat>();
         
+        distanceToMove = Random.Range(distanceToMove * .9f, distanceToMove * 1.1f);
+        timeToKeepMoving = Random.Range(timeToKeepMoving, timeToKeepMoving * 1.2f);
+        timeBetweenMovements = Random.Range(timeBetweenMovements * .8f, timeBetweenMovements);
+        
         movementCounter = timeBetweenMovements;
     }
 
@@ -55,7 +59,7 @@ public class EnemyMovement : MonoBehaviour
         }
         else if (movementCounter <= 0)
         {
-            movementCounter = timeToKeepMoving + timeBetweenMovements;
+            movementCounter = (timeToKeepMoving + timeBetweenMovements) * Random.Range(.9f, 1.1f);
 
             horizontal = Random.Range(-distanceToMove, distanceToMove);
             vertical = (distanceToMove - Mathf.Abs(horizontal)) * Random.Range(0, 2) * 2 - 1;

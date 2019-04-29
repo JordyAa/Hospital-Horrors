@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class PlayerManager : MonoBehaviour
 {
     public static PlayerManager instance { get; private set; }
-    public static Stats stats { get; set; }
+    public static Stats stats { get; private set; }
     
     public GameObject hitEffect;
     public Slider healthSlider;
@@ -23,7 +23,8 @@ public class PlayerManager : MonoBehaviour
     public Sprite powerLightning;
 
     public int selectedPower;
-    
+
+    private CameraFollow cam;
     private GameObject player;
     private static readonly int IsDead = Animator.StringToHash("IsDead");
 
@@ -44,6 +45,10 @@ public class PlayerManager : MonoBehaviour
     public void Init()
     {
         player = GameObject.FindWithTag("Player");
+        if (Camera.main != null)
+        {
+            cam = Camera.main.GetComponent<CameraFollow>();
+        }
 
         if (SceneManager.GetActiveScene().buildIndex == 1)
         {
@@ -61,6 +66,8 @@ public class PlayerManager : MonoBehaviour
 
     private void Update()
     {
+        if (GameManager.instance.isPaused) return;
+        
         stats.vitals.currentMana = Mathf.Min(
             stats.vitals.currentMana + stats.vitals.manaRechargeRate * Time.deltaTime, stats.vitals.maxMana);
         UpdateManaUI();
@@ -68,6 +75,8 @@ public class PlayerManager : MonoBehaviour
 
     public void Hit(int amount)
     {
+        cam.Shake();
+        
         stats.vitals.currentHealth = Mathf.Max(0, stats.vitals.currentHealth - amount);
         UpdateHealthUI();
         
@@ -76,6 +85,7 @@ public class PlayerManager : MonoBehaviour
         Instantiate(hitEffect, player.transform.position, Quaternion.identity);
         if (stats.vitals.currentHealth <= 0)
         {
+            GameManager.instance.isPaused = true;
             player.GetComponent<Animator>().SetTrigger(IsDead);
 
             if (stats.powers.revive > 0)

@@ -10,6 +10,7 @@ public class Projectile : MonoBehaviour
     private float timeBetweenTrailCounter;
     
     private SpellSettings spell;
+    private Stats stats;
     private string source;
 
     private CameraFollow cam;
@@ -18,36 +19,29 @@ public class Projectile : MonoBehaviour
     {
         this.spell = spell;
         this.source = source;
-        timeBetweenTrailCounter = timeBetweenTrails;
+        timeBetweenTrailCounter = timeBetweenTrails * Random.Range(.9f, 1.1f);
 
-        cam = Camera.main.GetComponent<CameraFollow>();
-        
+        if (Camera.main != null)
+        {
+            cam = Camera.main.GetComponent<CameraFollow>();
+        }
+
         Destroy(gameObject, spell.lifeTime);
-        GetComponent<Rigidbody2D>().velocity = direction * spell.projectileForce;
+        GetComponent<Rigidbody2D>().velocity =
+            direction * spell.projectileForce * PlayerManager.stats.weapon.projectileForceModifier;
     }
     
     public void Initialise(SpellSettings spell, Vector2 direction, string source, Stats stats)
     {
         Initialise(spell, direction, source);
-        ApplyStats(stats);
-    }
-
-    private void ApplyStats(Stats stats)
-    {
-        spell.minDamage = Mathf.FloorToInt(spell.minDamage * stats.weapon.minDamageModifier);
-        spell.maxDamage = Mathf.FloorToInt(spell.maxDamage * stats.weapon.maxDamageModifier);
-        
-        spell.manaCost = Mathf.FloorToInt(spell.manaCost * stats.weapon.manaCostModifier);
-        spell.cooldown *= stats.weapon.cooldownModifier;
-        
-        spell.projectileForce *= stats.weapon.projectileForceModifier;
+        this.stats = stats;
     }
 
     private void Update()
     {
         if (timeBetweenTrailCounter <= 0)
         {
-            timeBetweenTrailCounter = timeBetweenTrails;
+            timeBetweenTrailCounter = timeBetweenTrails * Random.Range(.9f, 1f);
 
             int rnd = Random.Range(0, trailObjects.Length);
             GameObject trail = Instantiate(trailObjects[rnd], transform.position, Quaternion.identity);
@@ -66,11 +60,14 @@ public class Projectile : MonoBehaviour
         
         if (other.CompareTag("Player"))
         {
-            PlayerManager.instance.Hit(Random.Range(spell.minDamage, spell.maxDamage));
+            PlayerManager.instance.Hit(Mathf.FloorToInt(Random.Range(spell.minDamage, spell.maxDamage) *
+                                                        Random.Range(.9f, 1.1f)));
         }
         else if (other.CompareTag("Enemy"))
         {
-            other.GetComponent<EnemyHealth>().TakeHit(Random.Range(spell.minDamage, spell.maxDamage));
+            other.GetComponent<EnemyHealth>().TakeHit(
+                Mathf.FloorToInt(Random.Range(spell.minDamage, spell.maxDamage) * 
+                                 stats.weapon.maxDamageModifier * Random.Range(.9f, 1.1f)));
         }
         else
         {

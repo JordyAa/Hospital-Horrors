@@ -24,7 +24,10 @@ public class PlayerCombat : MonoBehaviour
     {
         stats = PlayerManager.stats;
         cam = Camera.main;
-        camFollow = cam.GetComponent<CameraFollow>();
+        if (cam != null)
+        {
+            camFollow = cam.GetComponent<CameraFollow>();
+        }
     }
 
     private void Update()
@@ -42,9 +45,10 @@ public class PlayerCombat : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0) && PlayerManager.stats.vitals.currentMana >= equippedSpell.manaCost)
             {
-                spellCooldownTimer = equippedSpell.cooldown;
-                
-                PlayerManager.stats.vitals.currentMana -= equippedSpell.manaCost;
+                spellCooldownTimer = equippedSpell.cooldown * PlayerManager.stats.weapon.cooldownModifier;
+
+                float manaCost = equippedSpell.manaCost * PlayerManager.stats.weapon.manaCostModifier;
+                PlayerManager.stats.vitals.currentMana -= manaCost;
                 PlayerManager.instance.UpdateManaUI();
                 Shoot();
             }

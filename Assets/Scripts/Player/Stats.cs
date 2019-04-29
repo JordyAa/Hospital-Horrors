@@ -9,12 +9,12 @@
     
     public class Vitals
     {
-        public int maxHealth = 100;
-        public int currentHealth = 100;
+        public int maxHealth = 200;
+        public int currentHealth = 200;
 
         public int maxMana = 50;
         public float currentMana = 50f;
-        public float manaRechargeRate = 5f;
+        public float manaRechargeRate = 6.5f;
 
         public int souls = 0;
     }
@@ -42,7 +42,7 @@
     public class Powers
     {
         public int lightning = 0;
-        public int fireball = 0;
+        public int fireball = 1;
         public int freeze = 0;
         public int revive = 0;
     }
@@ -50,7 +50,7 @@
     public class Weapon
     {
         public int bullets = 1;
-        public float bulletSpread = 180f;
+        public float bulletSpread = 140f;
     
         public float minDamageModifier = 1f;
         public float maxDamageModifier = 1f;

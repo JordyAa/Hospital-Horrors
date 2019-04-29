@@ -468,7 +468,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 346659107
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: -1871007590808609743, guid: 43cd75f72a1cdda4cb6dc4891b322248,
     type: 3}
@@ -548,7 +548,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distanceToMove: 1.5
-  followDistance: 7
+  followDistance: 15
   timeToKeepMoving: 2
   timeBetweenMovements: 5
   isFreezing: 0
@@ -564,7 +564,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bf6311564258574b843751e4aa1176a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 75
+  maxHealth: 100
   healthBar: {fileID: 2137292988666672771}
   healthSlider: {fileID: 1533108818100589213}
   lootDrop: {fileID: 415419882315196437, guid: e5e93e5a5acfb1b4fb98973a5a720f03, type: 3}

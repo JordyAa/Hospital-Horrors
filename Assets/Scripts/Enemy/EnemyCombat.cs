@@ -15,7 +15,7 @@ public class EnemyCombat : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         
-        cooldownTimer = equippedSpell.cooldown;
+        cooldownTimer = equippedSpell.cooldown + Random.Range(-.1f, .1f);
     }
     
     private void Update()
@@ -48,9 +48,9 @@ public class EnemyCombat : MonoBehaviour
             equippedSpell.projectile,
             position + projectileSpawnOffset * direction,
             Quaternion.identity);
-        
+
         spell.tag = tag;
-        spell.GetComponent<Projectile>().Initialise(equippedSpell, direction, tag);
+        spell.GetComponent<Projectile>().Initialise(equippedSpell, direction, spell.tag);
     }
 
     private void OnTriggerEnter2D(Collider2D other)

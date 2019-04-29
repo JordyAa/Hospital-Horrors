@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
     public static GameManager instance { get; private set; }
     
     public GameObject gameOverPanel;
+    public GameObject pausePanel;
     public GameObject chooseUpgradePanel;
     public GameObject stageCompletePanel;
 
@@ -28,6 +29,23 @@ public class GameManager : MonoBehaviour
         // Initialise the player manager to reset UI and find the player.
         PlayerManager.instance.Init();
         isPaused = false;
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            pausePanel.SetActive(true);
+            isPaused = true;
+            Time.timeScale = 0f;
+        }
+    }
+
+    public void Continue()
+    {
+        pausePanel.SetActive(false);
+        isPaused = false;
+        Time.timeScale = 1f;
     }
 
     public void NextLevel()

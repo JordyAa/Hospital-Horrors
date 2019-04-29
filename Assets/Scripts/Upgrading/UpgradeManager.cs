@@ -164,7 +164,8 @@ public class UpgradeManager : MonoBehaviour
         if (CanAfford(plusHealth))
         {
             Purchase(plusHealth);
-            ChangeVitals(amount, 0);
+            PlayerManager.stats.vitals.maxHealth += amount;
+            PlayerManager.stats.vitals.currentHealth += amount;
             UpdateUI();
         }
     }
@@ -174,7 +175,8 @@ public class UpgradeManager : MonoBehaviour
         if (CanAfford(plusMana))
         {
             Purchase(plusMana);
-            ChangeVitals(0, amount);
+            PlayerManager.stats.vitals.maxMana += amount;
+            PlayerManager.stats.vitals.currentMana += amount;
             UpdateUI();
         }
     }
@@ -259,17 +261,6 @@ public class UpgradeManager : MonoBehaviour
          PlayerManager.stats.vitals.maxHealth -= upgrade.healthCost;
          PlayerManager.stats.vitals.maxMana -= upgrade.manaCost;
          PlayerManager.stats.vitals.souls -= upgrade.soulsCost;
-    }
-
-    private static void ChangeVitals(int health, int mana)
-    {
-        PlayerManager.stats.vitals.maxHealth += health;
-        PlayerManager.stats.vitals.currentHealth = Mathf.Min(
-            PlayerManager.stats.vitals.currentHealth, PlayerManager.stats.vitals.maxHealth);
-        
-        PlayerManager.stats.vitals.maxMana += mana;
-        PlayerManager.stats.vitals.currentMana = Mathf.Min(
-            PlayerManager.stats.vitals.currentMana, PlayerManager.stats.vitals.maxMana);
     }
 
     private static void UpdateUI()

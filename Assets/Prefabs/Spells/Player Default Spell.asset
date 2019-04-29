@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f310ed775cf378418808bc703cb79ae, type: 3}
   m_Name: Player Default Spell
   m_EditorClassIdentifier: 
-  minDamage: 10
-  maxDamage: 15
+  minDamage: 15
+  maxDamage: 20
   manaCost: 10
   cooldown: 0.5
-  lifeTime: 5
+  lifeTime: 3
   projectileForce: 10
   projectile: {fileID: 8890404181182070896, guid: e263c361f30786f419fe009006a336c8,
     type: 3}
