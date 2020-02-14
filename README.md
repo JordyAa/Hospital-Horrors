@@ -1,4 +1,4 @@
-# Ludum Dare Game Jam 44
+# Ludum Dare 44
 Theme: 'Life is Currency'
 
 # Built With
